@@ -245,9 +245,9 @@ uint64_t pow5(unsigned int x, unsigned int n)
 
 The above version still needs addtional space to track n. When $n=50$, the bit representation at each round is as the following:
 
-$$n_0=000000(0)\stackrel{n*2+1}\longrightarrow\ 
-n_1=000001(1)\stackrel{n*2+1}\longrightarrow\ 
-n_2=000011(3)\stackrel{n*2}\longrightarrow\ 
+$$n_0=000000(0)\stackrel{n*2+1}\longrightarrow
+n_1=000001(1)\stackrel{n*2+1}\longrightarrow
+n_2=000011(3)\stackrel{n*2}\longrightarrow
 n_3=000110(6)
 $$
 
