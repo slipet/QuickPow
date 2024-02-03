@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-Wall -O0
+CFLAGS=-Wall -O3
 SOURCES= test.c\
 		pow.c
 OBJECTS=$(SOURCES:.c=.o)
