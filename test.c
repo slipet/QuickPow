@@ -12,10 +12,10 @@ Input *initInput(size_t num_cases)
     assert(num_cases > 0);
     Input *input = (Input *) malloc(sizeof(Input) * num_cases);
 
-    srand(time(NULL));
+    srand(TIME_SEED);
 
-    input[0].x = rand() % 10000000000;
-    input[0].n = 0;
+    input[0].x = 2;
+    input[0].n = 30;
 
     for (size_t i = 1; i < num_cases; i++) {
         input[i].x = rand() % 10;
@@ -46,8 +46,16 @@ Test *initTest(size_t num_cases, Input *input, powFunc callPow)
     return test;
 }
 
-
-
+/**
+ * @brief Evaluates the performance of the pow function.
+ *
+ * This function measures the performance of the pow function by running it on a
+ * set of test cases. The performance metrics, including clock time, precise
+ * time, and wall time, are recorded for each test case and printed at the end.
+ *
+ * @param test The test object containing the test cases and the pow function to
+ * be tested.
+ */
 void evaluate(Test *test)
 {
     PROBE_TIME(test->total_time, start);
@@ -68,6 +76,16 @@ void evaluate(Test *test)
     printTime(&(test->total_time));
 }
 
+void validate(Test *testObj[], size_t size, size_t num_cases)
+{
+    for (size_t i = 0; i < num_cases; ++i) {
+        uint64_t expected = testObj[0]->testcase[i].result.value;
+        for (size_t j = 1; j < size; ++j) {
+            assert(testObj[j]->testcase[i].result.value == expected);
+        }
+    }
+}
+
 void printTime(Time *time)
 {
     printf("Clock Time: %lf s\n", time->clock_time);
@@ -76,7 +94,7 @@ void printTime(Time *time)
 }
 int main(void)
 {
-    size_t num_cases = 50;
+    size_t num_cases = 200;
     powFunc powArray[POW_FUNC_SIZE] = {pow1, pow2,   pow2_1, pow3,  pow3_1,
                                        pow4, pow4_1, pow5,   pow5_1};
     Input *input = initInput(num_cases);
@@ -85,6 +103,7 @@ int main(void)
         testObj[i] = initTest(num_cases, input, powArray[i]);
         evaluate(testObj[i]);
     }
+    validate(testObj, POW_FUNC_SIZE, num_cases);
 
     return 0;
 }

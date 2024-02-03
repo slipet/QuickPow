@@ -6,6 +6,11 @@
 #include <time.h>
 #include "pow.h"
 
+//#define RAND_INPUT
+#ifndef RAND_INPUT
+#define TIME_SEED 123456789
+#endif
+
 #define PROBE_TIME(TIME_OBJECT, TIME_POINT)                               \
     ({                                                                    \
         TIME_OBJECT.clock_##TIME_POINT = clock();                         \
