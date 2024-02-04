@@ -1,6 +1,6 @@
 # Quick Pow
 
-
+This research is inspired by [Exponentiation by squaring](https://chunminchang.github.io/blog/post/exponentiation-by-squaring).
 
 ### Development Environment
 <details>
