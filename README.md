@@ -197,9 +197,9 @@ $$
 
 For the bottom-up approach, we need to perform the symmetric operation to that of the top-down method.
 
-$$n_0=0\stackrel{n*2 + 1 }\longrightarrow\ n_1=1\stackrel{n*2}\longrightarrow \
-n_2=2\stackrel{n*2+1}\longrightarrow 
-n_3=5\stackrel{n*2}\longrightarrow 
+$$n_0=0\stackrel{n\*2 + 1 }\longrightarrow\ n_1=1\stackrel{n\*2}\longrightarrow \
+n_2=2\stackrel{n\*2+1}\longrightarrow 
+n_3=5\stackrel{n\*2}\longrightarrow 
 n_4=10
 $$
 
